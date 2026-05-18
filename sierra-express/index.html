@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sierra Express Logistics LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --navy: #0A1628;
+    --navy2: #0F1F3D;
+    --orange: #F97316;
+    --orange-dark: #C45E0E;
+    --gold: #F59E0B;
+    --text: #F8F9FA;
+    --muted: #8B9AB0;
+    --border: rgba(249,115,22,0.2);
+    --bg-light: #F4F6F9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; width: 100%;
+    z-index: 100;
+    padding: 1.2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,22,40,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(249,115,22,0.1);
+  }
+
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+  }
+  .logo span { color: var(--orange); }
+
+  .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+  .nav-links a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    background: var(--orange) !important;
+    color: white !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--orange-dark) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 80% 60% at 100% 50%, rgba(249,115,22,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 0% 100%, rgba(249,115,22,0.04) 0%, transparent 60%),
+      var(--navy);
+  }
+
+  /* Diagonal line pattern */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 60px,
+      rgba(249,115,22,0.02) 60px,
+      rgba(249,115,22,0.02) 61px
+    );
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 700px; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(249,115,22,0.1);
+    border: 1px solid rgba(249,115,22,0.3);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 2rem;
+  }
+  .hero-badge::before { content: '◆'; font-size: 0.5rem; }
+
+  .hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title span { color: var(--orange); }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--orange); background: rgba(249,115,22,0.08); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .hero-stat-num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* TICKER */
+  .ticker {
+    background: var(--orange);
+    padding: 0.8rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-flex;
+    animation: ticker 25s linear infinite;
+    gap: 2rem;
+  }
+  .ticker-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .ticker-item::after { content: '▶'; font-size: 0.45rem; opacity: 0.7; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* SECTION COMMON */
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1rem;
+  }
+  .section-tag::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--orange); }
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 560px;
+  }
+
+  /* SERVICES */
+  .services {
+    padding: 7rem 4rem;
+    background: var(--navy2);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.05);
+    margin-top: 4rem;
+  }
+
+  .service-card {
+    background: var(--navy2);
+    padding: 2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--orange);
+    transition: width 0.3s;
+  }
+  .service-card:hover { background: rgba(249,115,22,0.05); }
+  .service-card:hover::after { width: 100%; }
+
+  .service-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
+
+  .service-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .service-desc {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* REVENUE SECTION */
+  .revenue {
+    padding: 7rem 4rem;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .revenue-table {
+    margin-top: 2.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .revenue-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.2s;
+  }
+  .revenue-row:hover { background: rgba(249,115,22,0.05); }
+  .revenue-row:last-child { border-bottom: none; background: rgba(249,115,22,0.1); }
+
+  .revenue-label { font-size: 0.85rem; color: var(--muted); font-weight: 400; }
+  .revenue-amount {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--orange);
+  }
+  .revenue-row:last-child .revenue-label { color: var(--text); font-weight: 600; }
+  .revenue-row:last-child .revenue-amount { font-size: 1.2rem; color: var(--gold); }
+
+  .revenue-visual { text-align: center; }
+  .big-number {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(4rem, 8vw, 7rem);
+    color: var(--orange);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .big-number-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+
+  /* INDUSTRIES */
+  .industries {
+    padding: 7rem 4rem;
+    background: var(--bg-light);
+  }
+  .industries .section-title { color: var(--navy); }
+  .industries .section-tag { color: var(--orange); }
+  .industries .section-sub { color: #64748b; }
+
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .industry-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    text-align: center;
+  }
+  .industry-card:hover {
+    border-color: var(--orange);
+    box-shadow: 0 8px 30px rgba(249,115,22,0.1);
+    transform: translateY(-3px);
+  }
+
+  .industry-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
+
+  .industry-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+  }
+
+  /* OUTREACH SECTION */
+  .outreach {
+    padding: 7rem 4rem;
+    background: var(--navy2);
+  }
+
+  .outreach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .outreach-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .outreach-card:hover {
+    border-color: rgba(249,115,22,0.4);
+    background: rgba(249,115,22,0.04);
+  }
+
+  .outreach-num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .outreach-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .outreach-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 7rem 4rem;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .form-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-input, .form-select, .form-textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text);
+    padding: 0.9rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    outline: none;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--orange); }
+  .form-select { appearance: none; cursor: pointer; }
+  .form-textarea { resize: vertical; min-height: 120px; }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .btn-submit {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+  .btn-submit:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+  .contact-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-top: 1.5rem;
+  }
+  .contact-info-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  .contact-info-val { font-size: 0.95rem; font-weight: 300; }
+
+  /* FOOTER */
+  footer {
+    background: #060D1A;
+    border-top: 1px solid rgba(249,115,22,0.15);
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+  }
+  .footer-logo span { color: var(--orange); }
+  .footer-copy { font-size: 0.78rem; color: var(--muted); }
+  .footer-tagline { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    nav { padding: 1.2rem 2rem; }
+    .hero { padding: 0 2rem; }
+    .services { padding: 5rem 2rem; }
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .revenue { grid-template-columns: 1fr; padding: 5rem 2rem; gap: 3rem; }
+    .industries { padding: 5rem 2rem; }
+    .industries-grid { grid-template-columns: repeat(3, 1fr); }
+    .outreach { padding: 5rem 2rem; }
+    .outreach-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact { grid-template-columns: 1fr; padding: 5rem 2rem; gap: 3rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hero { padding: 6rem 1.5rem 3rem; }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .industries-grid { grid-template-columns: repeat(2, 1fr); }
+    .outreach-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">SIERRA <span>EXPRESS</span> LOGISTICS</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#industries">Industries</a>
+    <a href="#revenue">Revenue Model</a>
+    <a href="#contact" class="nav-cta">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Sierra Express Logistics LLC</div>
+    <h1 class="hero-title">
+      Move More.<br>
+      Earn More.<br>
+      <span>Every Day.</span>
+    </h1>
+    <p class="hero-sub">
+      A multi-industry logistics company built for speed, reliability, and scale. From apartment moves to government contracts — we keep your business moving.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request a Quote</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">10</div>
+        <div class="hero-stat-label">Industries Served</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">$5,750</div>
+        <div class="hero-stat-label">Daily Revenue Target</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">100+</div>
+        <div class="hero-stat-label">Daily Client Touches</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">24/7</div>
+        <div class="hero-stat-label">Available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Same-Day Moves</span>
+    <span class="ticker-item">Commercial Deliveries</span>
+    <span class="ticker-item">Government Contracts</span>
+    <span class="ticker-item">Medical Logistics</span>
+    <span class="ticker-item">Hotel & Event Logistics</span>
+    <span class="ticker-item">Apartment Moves</span>
+    <span class="ticker-item">Emergency Response</span>
+    <span class="ticker-item">Same-Day Moves</span>
+    <span class="ticker-item">Commercial Deliveries</span>
+    <span class="ticker-item">Government Contracts</span>
+    <span class="ticker-item">Medical Logistics</span>
+    <span class="ticker-item">Hotel & Event Logistics</span>
+    <span class="ticker-item">Apartment Moves</span>
+    <span class="ticker-item">Emergency Response</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="reveal">
+    <div class="section-tag">What We Do</div>
+    <h2 class="section-title">Full-Service Logistics<br>Built to Scale</h2>
+    <p class="section-sub">From residential moves to large commercial deliveries, Sierra Express runs stacked revenue streams to keep trucks moving all day.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <span class="service-icon">🏠</span>
+      <div class="service-name">Same-Day Moves</div>
+      <p class="service-desc">Residential and apartment moves on demand. Fast, efficient, and handled with care.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <span class="service-icon">🏢</span>
+      <div class="service-name">Commercial Deliveries</div>
+      <p class="service-desc">Office moves, retail logistics, and business deliveries across the metro area.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <span class="service-icon">🏥</span>
+      <div class="service-name">Medical Logistics</div>
+      <p class="service-desc">Hospital equipment, medical bed delivery, pharmacy supply runs and healthcare hauling.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <span class="service-icon">🏛️</span>
+      <div class="service-name">Government Contracts</div>
+      <p class="service-desc">City office relocations, school district logistics, and micro-contract delivery jobs.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-4">
+      <span class="service-icon">🚨</span>
+      <div class="service-name">Emergency & Last-Minute</div>
+      <p class="service-desc">Premium same-day rates for urgent moves and last-minute emergency logistics.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE MODEL -->
+<section class="revenue" id="revenue">
+  <div>
+    <div class="section-tag reveal">Revenue Model</div>
+    <h2 class="section-title reveal">Daily Revenue<br>Stack</h2>
+    <p class="section-sub reveal">Sierra Express runs multiple revenue layers simultaneously — blending small fast jobs with large commercial contracts to hit daily targets consistently.</p>
+    <div class="revenue-table reveal">
+      <div class="revenue-row">
+        <span class="revenue-label">Same-Day Moves</span>
+        <span class="revenue-amount">$1,500/day</span>
+      </div>
+      <div class="revenue-row">
+        <span class="revenue-label">Commercial Deliveries</span>
+        <span class="revenue-amount">$1,250/day</span>
+      </div>
+      <div class="revenue-row">
+        <span class="revenue-label">Gig Platforms</span>
+        <span class="revenue-amount">$750/day</span>
+      </div>
+      <div class="revenue-row">
+        <span class="revenue-label">Government / Institutional</span>
+        <span class="revenue-amount">$1,000/day</span>
+      </div>
+      <div class="revenue-row">
+        <span class="revenue-label">Hotel / Event Logistics</span>
+        <span class="revenue-amount">$750/day</span>
+      </div>
+      <div class="revenue-row">
+        <span class="revenue-label">Emergency / Last-Minute</span>
+        <span class="revenue-amount">$500/day</span>
+      </div>
+      <div class="revenue-row">
+        <span class="revenue-label">Daily Target</span>
+        <span class="revenue-amount">$5,750</span>
+      </div>
+    </div>
+  </div>
+  <div class="revenue-visual reveal">
+    <div class="big-number">$5,750</div>
+    <div class="big-number-label">Daily Revenue Target</div>
+    <div style="margin-top: 3rem; display: flex; flex-direction: column; gap: 1rem;">
+      <div style="background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.2); border-radius: 8px; padding: 1.5rem;">
+        <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 0.5rem;">14ft Box Truck</div>
+        <div style="font-size: 0.85rem; color: var(--muted);">Fast-response urban & specialty moves</div>
+      </div>
+      <div style="background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.2); border-radius: 8px; padding: 1.5rem;">
+        <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 0.5rem;">26ft Box Truck</div>
+        <div style="font-size: 0.85rem; color: var(--muted);">Large commercial & government contracts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries" id="industries">
+  <div class="reveal">
+    <div class="section-tag">Who We Serve</div>
+    <h2 class="section-title">10 Industries.<br>Endless Opportunity.</h2>
+    <p class="section-sub">Sierra Express is built to serve across industries — from apartment management and healthcare to government agencies and hotels.</p>
+  </div>
+  <div class="industries-grid">
+    <div class="industry-card reveal">
+      <span class="industry-icon">🏢</span>
+      <div class="industry-name">Apartment Management</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-1">
+      <span class="industry-icon">🧓</span>
+      <div class="industry-name">Senior Living</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-2">
+      <span class="industry-icon">🏡</span>
+      <div class="industry-name">Real Estate Agents</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-3">
+      <span class="industry-icon">❤️</span>
+      <div class="industry-name">Nonprofits</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-4">
+      <span class="industry-icon">🏛️</span>
+      <div class="industry-name">Government</div>
+    </div>
+    <div class="industry-card reveal">
+      <span class="industry-icon">🎓</span>
+      <div class="industry-name">Education</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-1">
+      <span class="industry-icon">🏥</span>
+      <div class="industry-name">Healthcare</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-2">
+      <span class="industry-icon">⛪</span>
+      <div class="industry-name">Churches & Faith Orgs</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-3">
+      <span class="industry-icon">📱</span>
+      <div class="industry-name">Gig Platforms</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-4">
+      <span class="industry-icon">🏨</span>
+      <div class="industry-name">Hotels & Hospitality</div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTREACH SYSTEM -->
+<section class="outreach">
+  <div class="reveal">
+    <div class="section-tag">Our System</div>
+    <h2 class="section-title">100-Touch Daily<br>Outreach Machine</h2>
+    <p class="section-sub">Sierra Express doesn't wait for jobs — we proactively build relationships across every channel every single day.</p>
+  </div>
+  <div class="outreach-grid">
+    <div class="outreach-card reveal">
+      <div class="outreach-num">20</div>
+      <div class="outreach-label">Phone Calls Daily</div>
+      <p class="outreach-desc">Direct calls to apartment managers, realtors, hotels, contractors, and medical offices to build direct relationships.</p>
+    </div>
+    <div class="outreach-card reveal reveal-delay-1">
+      <div class="outreach-num">20</div>
+      <div class="outreach-label">Emails Daily</div>
+      <p class="outreach-desc">Targeted capability statements, quote proposals, and partnership outreach to commercial clients.</p>
+    </div>
+    <div class="outreach-card reveal reveal-delay-2">
+      <div class="outreach-num">15</div>
+      <div class="outreach-label">Text Follow-Ups</div>
+      <p class="outreach-desc">Consistent follow-up with previous clients and warm prospects to generate repeat business.</p>
+    </div>
+    <div class="outreach-card reveal reveal-delay-3">
+      <div class="outreach-num">10</div>
+      <div class="outreach-label">In-Person Visits</div>
+      <p class="outreach-desc">Direct visits to apartment complexes, hotels, storage facilities, and medical offices.</p>
+    </div>
+    <div class="outreach-card reveal reveal-delay-4">
+      <div class="outreach-num">10</div>
+      <div class="outreach-label">Marketplace Posts</div>
+      <p class="outreach-desc">Active listings on Facebook Marketplace, Craigslist, GoShare, and other platforms daily.</p>
+    </div>
+    <div class="outreach-card reveal reveal-delay-5">
+      <div class="outreach-num">5</div>
+      <div class="outreach-label">Gov't Outreach</div>
+      <p class="outreach-desc">Daily vendor registration and contract outreach to city procurement offices and school districts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div>
+    <div class="section-tag reveal">Work With Us</div>
+    <h2 class="section-title reveal">Ready to Move?<br>Let's Talk.</h2>
+    <p class="section-sub reveal">Whether you need a same-day move, ongoing commercial deliveries, or a long-term logistics partner — Sierra Express is ready.</p>
+    <div class="contact-info-item reveal">
+      <span class="contact-info-label">Email</span>
+      <span class="contact-info-val">info@sierraexpresslogistics.com</span>
+    </div>
+    <div class="contact-info-item reveal">
+      <span class="contact-info-label">Service Area</span>
+      <span class="contact-info-val">Available upon request</span>
+    </div>
+    <div class="contact-info-item reveal">
+      <span class="contact-info-label">Availability</span>
+      <span class="contact-info-val">7 Days a Week — Emergency Available 24/7</span>
+    </div>
+  </div>
+  <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+    <div class="form-grid">
+      <div class="form-group">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-input" placeholder="John" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-input" placeholder="Smith" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-input" placeholder="john@company.com" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Phone</label>
+      <input type="tel" class="form-input" placeholder="(555) 000-0000">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Service Needed</label>
+      <select class="form-select form-input">
+        <option value="">Select a service...</option>
+        <option>Same-Day Move</option>
+        <option>Commercial Delivery</option>
+        <option>Medical / Healthcare Logistics</option>
+        <option>Government Contract</option>
+        <option>Hotel / Event Logistics</option>
+        <option>Emergency Move</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Message</label>
+      <textarea class="form-textarea" placeholder="Tell us about your logistics needs — what you need moved, when, and where..."></textarea>
+    </div>
+    <button type="submit" class="btn-submit">Send Request →</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SIERRA <span>EXPRESS</span> LOGISTICS LLC</div>
+  <div class="footer-tagline">Relationship-Driven Logistics Infrastructure</div>
+  <div class="footer-copy">© 2026 Sierra Express Logistics LLC</div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = 'Sent! ✓';
+    btn.style.background = '#16a34a';
+    setTimeout(() => { btn.textContent = 'Send Request →'; btn.style.background = ''; e.target.reset(); }, 3000);
+  }
+</script>
+</body>
+</html>
