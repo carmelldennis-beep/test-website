@@ -14,7 +14,6 @@
     --navy2: #0F1F3D;
     --orange: #F97316;
     --orange-dark: #C45E0E;
-    --gold: #F59E0B;
     --text: #F8F9FA;
     --muted: #8B9AB0;
     --border: rgba(249,115,22,0.2);
@@ -89,7 +88,6 @@
       var(--navy);
   }
 
-  /* Diagonal line pattern */
   .hero::before {
     content: '';
     position: absolute;
@@ -309,61 +307,6 @@
     font-weight: 300;
   }
 
-  /* REVENUE SECTION */
-  .revenue {
-    padding: 7rem 4rem;
-    background: var(--navy);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-
-  .revenue-table {
-    margin-top: 2.5rem;
-    border: 1px solid rgba(255,255,255,0.08);
-    overflow: hidden;
-    border-radius: 8px;
-  }
-
-  .revenue-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    transition: background 0.2s;
-  }
-  .revenue-row:hover { background: rgba(249,115,22,0.05); }
-  .revenue-row:last-child { border-bottom: none; background: rgba(249,115,22,0.1); }
-
-  .revenue-label { font-size: 0.85rem; color: var(--muted); font-weight: 400; }
-  .revenue-amount {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--orange);
-  }
-  .revenue-row:last-child .revenue-label { color: var(--text); font-weight: 600; }
-  .revenue-row:last-child .revenue-amount { font-size: 1.2rem; color: var(--gold); }
-
-  .revenue-visual { text-align: center; }
-  .big-number {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: clamp(4rem, 8vw, 7rem);
-    color: var(--orange);
-    line-height: 1;
-    letter-spacing: -0.03em;
-  }
-  .big-number-label {
-    font-size: 0.8rem;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-top: 0.5rem;
-  }
-
   /* INDUSTRIES */
   .industries {
     padding: 7rem 4rem;
@@ -406,76 +349,84 @@
     line-height: 1.3;
   }
 
-  /* OUTREACH SECTION */
-  .outreach {
+  /* BOOK YOUR MOVE */
+  .book-move {
     padding: 7rem 4rem;
     background: var(--navy2);
   }
 
-  .outreach-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 4rem;
+  .move-form {
+    max-width: 900px;
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
-  .outreach-card {
-    background: rgba(255,255,255,0.03);
+  .move-section {
     border: 1px solid rgba(255,255,255,0.07);
-    padding: 2rem;
     border-radius: 8px;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .outreach-card:hover {
-    border-color: rgba(249,115,22,0.4);
-    background: rgba(249,115,22,0.04);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
   }
 
-  .outreach-num {
+  .move-section-header {
+    background: rgba(249,115,22,0.08);
+    border-bottom: 1px solid rgba(249,115,22,0.15);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .move-section-num {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
-    font-size: 2.5rem;
+    font-size: 0.75rem;
     color: var(--orange);
-    line-height: 1;
-    margin-bottom: 0.5rem;
+    background: rgba(249,115,22,0.15);
+    border: 1px solid rgba(249,115,22,0.3);
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
-  .outreach-label {
+  .move-section-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.5rem;
-  }
-
-  .outreach-desc {
     font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.6;
-    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text);
   }
 
-  /* CONTACT */
-  .contact {
-    padding: 7rem 4rem;
-    background: var(--navy);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
+  .move-section-body {
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    background: rgba(255,255,255,0.02);
   }
-
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
 
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
 
   .form-label {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--muted);
+  }
+  .form-label .optional {
+    font-weight: 300;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.67rem;
+    color: #5a6a80;
+    margin-left: 0.3rem;
   }
 
   .form-input, .form-select, .form-textarea {
@@ -488,25 +439,67 @@
     font-weight: 300;
     outline: none;
     border-radius: 4px;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, background 0.2s;
     width: 100%;
   }
-  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--orange); }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--orange);
+    background: rgba(249,115,22,0.03);
+  }
   .form-select { appearance: none; cursor: pointer; }
-  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-select option { background: #0F1F3D; color: var(--text); }
+  .form-textarea { resize: vertical; min-height: 110px; }
+  .form-input[type="date"] { color-scheme: dark; }
 
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  .form-grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1rem; }
+
+  /* Checkbox group */
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6rem;
+    margin-top: 0.2rem;
+  }
+
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 0.65rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--muted);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    user-select: none;
+  }
+  .checkbox-item:hover {
+    border-color: rgba(249,115,22,0.4);
+    color: var(--text);
+    background: rgba(249,115,22,0.04);
+  }
+  .checkbox-item input[type="checkbox"] {
+    accent-color: var(--orange);
+    width: 14px; height: 14px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
 
   .btn-submit {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     background: var(--orange);
     color: white;
     border: none;
-    padding: 1rem 2.5rem;
+    padding: 1.1rem 3rem;
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.2s, transform 0.2s;
@@ -514,6 +507,18 @@
     margin-top: 0.5rem;
   }
   .btn-submit:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+  /* CONTACT */
+  .contact {
+    padding: 7rem 4rem;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
 
   .contact-info-item {
     display: flex;
@@ -555,7 +560,6 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
-  .reveal-delay-5 { transition-delay: 0.5s; }
 
   /* RESPONSIVE */
   @media (max-width: 1024px) {
@@ -563,11 +567,12 @@
     .hero { padding: 0 2rem; }
     .services { padding: 5rem 2rem; }
     .services-grid { grid-template-columns: repeat(3, 1fr); }
-    .revenue { grid-template-columns: 1fr; padding: 5rem 2rem; gap: 3rem; }
     .industries { padding: 5rem 2rem; }
     .industries-grid { grid-template-columns: repeat(3, 1fr); }
-    .outreach { padding: 5rem 2rem; }
-    .outreach-grid { grid-template-columns: repeat(2, 1fr); }
+    .book-move { padding: 5rem 2rem; }
+    .form-grid-3 { grid-template-columns: 1fr 1fr; }
+    .form-grid-4 { grid-template-columns: 1fr 1fr; }
+    .checkbox-grid { grid-template-columns: repeat(2, 1fr); }
     .contact { grid-template-columns: 1fr; padding: 5rem 2rem; gap: 3rem; }
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
   }
@@ -578,8 +583,12 @@
     .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
     .services-grid { grid-template-columns: 1fr 1fr; }
     .industries-grid { grid-template-columns: repeat(2, 1fr); }
-    .outreach-grid { grid-template-columns: 1fr; }
+    .book-move { padding: 4rem 1.5rem; }
     .form-grid { grid-template-columns: 1fr; }
+    .form-grid-3 { grid-template-columns: 1fr; }
+    .form-grid-4 { grid-template-columns: 1fr 1fr; }
+    .checkbox-grid { grid-template-columns: 1fr 1fr; }
+    .move-section-body { padding: 1.25rem 1rem; }
   }
 </style>
 </head>
@@ -591,7 +600,7 @@
   <div class="nav-links">
     <a href="#services">Services</a>
     <a href="#industries">Industries</a>
-    <a href="#revenue">Revenue Model</a>
+    <a href="#book-move">Book a Move</a>
     <a href="#contact" class="nav-cta">Get a Quote</a>
   </div>
 </nav>
@@ -609,25 +618,25 @@
       A multi-industry logistics company built for speed, reliability, and scale. From apartment moves to government contracts — we keep your business moving.
     </p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Request a Quote</a>
+      <a href="#book-move" class="btn-primary">Book a Move</a>
       <a href="#services" class="btn-outline">Our Services</a>
     </div>
     <div class="hero-stats">
       <div>
-        <div class="hero-stat-num">10</div>
+        <div class="hero-stat-num">10+</div>
         <div class="hero-stat-label">Industries Served</div>
       </div>
       <div>
-        <div class="hero-stat-num">$5,750</div>
-        <div class="hero-stat-label">Daily Revenue Target</div>
+        <div class="hero-stat-num">Same-Day</div>
+        <div class="hero-stat-label">Dispatch Available</div>
       </div>
       <div>
-        <div class="hero-stat-num">100+</div>
-        <div class="hero-stat-label">Daily Client Touches</div>
+        <div class="hero-stat-num">Insured</div>
+        <div class="hero-stat-label">Licensed & Covered</div>
       </div>
       <div>
         <div class="hero-stat-num">24/7</div>
-        <div class="hero-stat-label">Available</div>
+        <div class="hero-stat-label">Emergency Available</div>
       </div>
     </div>
   </div>
@@ -689,59 +698,6 @@
   </div>
 </section>
 
-<!-- REVENUE MODEL -->
-<section class="revenue" id="revenue">
-  <div>
-    <div class="section-tag reveal">Revenue Model</div>
-    <h2 class="section-title reveal">Daily Revenue<br>Stack</h2>
-    <p class="section-sub reveal">Sierra Express runs multiple revenue layers simultaneously — blending small fast jobs with large commercial contracts to hit daily targets consistently.</p>
-    <div class="revenue-table reveal">
-      <div class="revenue-row">
-        <span class="revenue-label">Same-Day Moves</span>
-        <span class="revenue-amount">$1,500/day</span>
-      </div>
-      <div class="revenue-row">
-        <span class="revenue-label">Commercial Deliveries</span>
-        <span class="revenue-amount">$1,250/day</span>
-      </div>
-      <div class="revenue-row">
-        <span class="revenue-label">Gig Platforms</span>
-        <span class="revenue-amount">$750/day</span>
-      </div>
-      <div class="revenue-row">
-        <span class="revenue-label">Government / Institutional</span>
-        <span class="revenue-amount">$1,000/day</span>
-      </div>
-      <div class="revenue-row">
-        <span class="revenue-label">Hotel / Event Logistics</span>
-        <span class="revenue-amount">$750/day</span>
-      </div>
-      <div class="revenue-row">
-        <span class="revenue-label">Emergency / Last-Minute</span>
-        <span class="revenue-amount">$500/day</span>
-      </div>
-      <div class="revenue-row">
-        <span class="revenue-label">Daily Target</span>
-        <span class="revenue-amount">$5,750</span>
-      </div>
-    </div>
-  </div>
-  <div class="revenue-visual reveal">
-    <div class="big-number">$5,750</div>
-    <div class="big-number-label">Daily Revenue Target</div>
-    <div style="margin-top: 3rem; display: flex; flex-direction: column; gap: 1rem;">
-      <div style="background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.2); border-radius: 8px; padding: 1.5rem;">
-        <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 0.5rem;">14ft Box Truck</div>
-        <div style="font-size: 0.85rem; color: var(--muted);">Fast-response urban & specialty moves</div>
-      </div>
-      <div style="background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.2); border-radius: 8px; padding: 1.5rem;">
-        <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 0.5rem;">26ft Box Truck</div>
-        <div style="font-size: 0.85rem; color: var(--muted);">Large commercial & government contracts</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- INDUSTRIES -->
 <section class="industries" id="industries">
   <div class="reveal">
@@ -793,53 +749,197 @@
   </div>
 </section>
 
-<!-- OUTREACH SYSTEM -->
-<section class="outreach">
+<!-- BOOK YOUR MOVE -->
+<section class="book-move" id="book-move">
   <div class="reveal">
-    <div class="section-tag">Our System</div>
-    <h2 class="section-title">100-Touch Daily<br>Outreach Machine</h2>
-    <p class="section-sub">Sierra Express doesn't wait for jobs — we proactively build relationships across every channel every single day.</p>
+    <div class="section-tag">Get a Quote</div>
+    <h2 class="section-title">Book Your Move.<br>We Handle the Rest.</h2>
+    <p class="section-sub">Fill out the details below and we'll get back to you with a custom quote — usually within the hour.</p>
   </div>
-  <div class="outreach-grid">
-    <div class="outreach-card reveal">
-      <div class="outreach-num">20</div>
-      <div class="outreach-label">Phone Calls Daily</div>
-      <p class="outreach-desc">Direct calls to apartment managers, realtors, hotels, contractors, and medical offices to build direct relationships.</p>
+
+  <form class="move-form reveal" onsubmit="handleMoveSubmit(event)">
+
+    <!-- Section 1: Contact Info -->
+    <div class="move-section">
+      <div class="move-section-header">
+        <div class="move-section-num">1</div>
+        <div class="move-section-title">Your Contact Info</div>
+      </div>
+      <div class="move-section-body">
+        <div class="form-grid-3">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-input" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-input" placeholder="Smith" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-input" placeholder="(555) 000-0000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="john@email.com" required>
+        </div>
+      </div>
     </div>
-    <div class="outreach-card reveal reveal-delay-1">
-      <div class="outreach-num">20</div>
-      <div class="outreach-label">Emails Daily</div>
-      <p class="outreach-desc">Targeted capability statements, quote proposals, and partnership outreach to commercial clients.</p>
+
+    <!-- Section 2: Move Date & Addresses -->
+    <div class="move-section">
+      <div class="move-section-header">
+        <div class="move-section-num">2</div>
+        <div class="move-section-title">Move Date & Locations</div>
+      </div>
+      <div class="move-section-body">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Preferred Move Date</label>
+            <input type="date" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Preferred Time</label>
+            <select class="form-select form-input">
+              <option value="">Select a time window...</option>
+              <option>Morning (7am – 11am)</option>
+              <option>Midday (11am – 2pm)</option>
+              <option>Afternoon (2pm – 6pm)</option>
+              <option>Evening (6pm+)</option>
+              <option>Flexible — Any Time Works</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Pickup Address</label>
+            <input type="text" class="form-input" placeholder="123 Main St, City, State, ZIP" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Delivery Address</label>
+            <input type="text" class="form-input" placeholder="456 Oak Ave, City, State, ZIP" required>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="outreach-card reveal reveal-delay-2">
-      <div class="outreach-num">15</div>
-      <div class="outreach-label">Text Follow-Ups</div>
-      <p class="outreach-desc">Consistent follow-up with previous clients and warm prospects to generate repeat business.</p>
+
+    <!-- Section 3: Location Details -->
+    <div class="move-section">
+      <div class="move-section-header">
+        <div class="move-section-num">3</div>
+        <div class="move-section-title">Location Details</div>
+      </div>
+      <div class="move-section-body">
+        <div class="form-grid-4">
+          <div class="form-group">
+            <label class="form-label">Pickup — Floors</label>
+            <select class="form-select form-input">
+              <option>1 Floor / Ground Level</option>
+              <option>2 Floors</option>
+              <option>3+ Floors</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Pickup — Elevator?</label>
+            <select class="form-select form-input">
+              <option>No Elevator / Stairs Only</option>
+              <option>Elevator Available</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Delivery — Floors</label>
+            <select class="form-select form-input">
+              <option>1 Floor / Ground Level</option>
+              <option>2 Floors</option>
+              <option>3+ Floors</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Delivery — Elevator?</label>
+            <select class="form-select form-input">
+              <option>No Elevator / Stairs Only</option>
+              <option>Elevator Available</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="outreach-card reveal reveal-delay-3">
-      <div class="outreach-num">10</div>
-      <div class="outreach-label">In-Person Visits</div>
-      <p class="outreach-desc">Direct visits to apartment complexes, hotels, storage facilities, and medical offices.</p>
+
+    <!-- Section 4: What's Being Moved -->
+    <div class="move-section">
+      <div class="move-section-header">
+        <div class="move-section-num">4</div>
+        <div class="move-section-title">What's Being Moved</div>
+      </div>
+      <div class="move-section-body">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Home / Space Size</label>
+            <select class="form-select form-input">
+              <option value="">Select size...</option>
+              <option>Studio / Single Room</option>
+              <option>1 Bedroom Apartment</option>
+              <option>2 Bedroom Apartment</option>
+              <option>3 Bedroom Home</option>
+              <option>4+ Bedroom Home</option>
+              <option>Office / Commercial Space</option>
+              <option>Storage Unit</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Approximate Number of Items</label>
+            <select class="form-select form-input">
+              <option value="">Select item count...</option>
+              <option>1–10 items (small load)</option>
+              <option>11–25 items (medium load)</option>
+              <option>26–50 items (large load)</option>
+              <option>50+ items (full home or commercial)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Estimated Total Weight</label>
+          <select class="form-select form-input">
+            <option value="">Select estimated weight...</option>
+            <option>Light — Under 500 lbs (a few boxes & small furniture)</option>
+            <option>Medium — 500 to 1,500 lbs (1–2 rooms of furniture)</option>
+            <option>Heavy — 1,500 to 3,000 lbs (3–4 rooms of furniture)</option>
+            <option>Very Heavy — 3,000+ lbs (full home or large commercial)</option>
+            <option>Not Sure — I need help estimating</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Special or Heavy Items <span class="optional">(check all that apply)</span></label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox"> Piano / Keyboard</label>
+            <label class="checkbox-item"><input type="checkbox"> Safe / Gun Safe</label>
+            <label class="checkbox-item"><input type="checkbox"> Large Appliances</label>
+            <label class="checkbox-item"><input type="checkbox"> Antiques / Fine Art</label>
+            <label class="checkbox-item"><input type="checkbox"> Pool / Foosball Table</label>
+            <label class="checkbox-item"><input type="checkbox"> Medical Equipment</label>
+            <label class="checkbox-item"><input type="checkbox"> Office Equipment</label>
+            <label class="checkbox-item"><input type="checkbox"> None of the Above</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Additional Notes <span class="optional">(optional)</span></label>
+          <textarea class="form-textarea" placeholder="Anything else we should know — narrow hallways, long carry distance, fragile items, parking restrictions, specific furniture pieces, etc."></textarea>
+        </div>
+      </div>
     </div>
-    <div class="outreach-card reveal reveal-delay-4">
-      <div class="outreach-num">10</div>
-      <div class="outreach-label">Marketplace Posts</div>
-      <p class="outreach-desc">Active listings on Facebook Marketplace, Craigslist, GoShare, and other platforms daily.</p>
-    </div>
-    <div class="outreach-card reveal reveal-delay-5">
-      <div class="outreach-num">5</div>
-      <div class="outreach-label">Gov't Outreach</div>
-      <p class="outreach-desc">Daily vendor registration and contract outreach to city procurement offices and school districts.</p>
-    </div>
-  </div>
+
+    <button type="submit" class="btn-submit">Request My Quote →</button>
+  </form>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div>
     <div class="section-tag reveal">Work With Us</div>
-    <h2 class="section-title reveal">Ready to Move?<br>Let's Talk.</h2>
-    <p class="section-sub reveal">Whether you need a same-day move, ongoing commercial deliveries, or a long-term logistics partner — Sierra Express is ready.</p>
+    <h2 class="section-title reveal">Questions?<br>Let's Talk.</h2>
+    <p class="section-sub reveal">Need a custom solution, ongoing commercial deliveries, or a long-term logistics partner? Reach out directly.</p>
     <div class="contact-info-item reveal">
       <span class="contact-info-label">Email</span>
       <span class="contact-info-val">info@sierraexpresslogistics.com</span>
@@ -887,9 +987,9 @@
     </div>
     <div class="form-group">
       <label class="form-label">Message</label>
-      <textarea class="form-textarea" placeholder="Tell us about your logistics needs — what you need moved, when, and where..."></textarea>
+      <textarea class="form-textarea" placeholder="Tell us about your logistics needs..."></textarea>
     </div>
-    <button type="submit" class="btn-submit">Send Request →</button>
+    <button type="submit" class="btn-submit">Send Message →</button>
   </form>
 </section>
 
@@ -907,12 +1007,20 @@
   }, { threshold: 0.08 });
   reveals.forEach(el => observer.observe(el));
 
+  function handleMoveSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = 'Quote Request Sent ✓';
+    btn.style.background = '#16a34a';
+    setTimeout(() => { btn.textContent = 'Request My Quote →'; btn.style.background = ''; e.target.reset(); }, 3500);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.btn-submit');
     btn.textContent = 'Sent! ✓';
     btn.style.background = '#16a34a';
-    setTimeout(() => { btn.textContent = 'Send Request →'; btn.style.background = ''; e.target.reset(); }, 3000);
+    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; e.target.reset(); }, 3000);
   }
 </script>
 </body>
