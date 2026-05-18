@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cold Email Lead Generation Proposal — Sierra Express Logistics LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0A1628;
+    --navy2: #0F1F3D;
+    --orange: #F97316;
+    --orange-light: #FFF3E8;
+    --orange-mid: #FEE4CA;
+    --text: #1A2332;
+    --muted: #64748B;
+    --border: #E2E8F0;
+    --bg: #F8FAFC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* COVER HEADER */
+  .cover {
+    background: var(--navy);
+    padding: 3.5rem 4rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg, transparent, transparent 60px,
+      rgba(249,115,22,0.03) 60px, rgba(249,115,22,0.03) 61px
+    );
+  }
+  .cover-inner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+
+  .cover-from {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+  }
+
+  .cover-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: white;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+  .cover-title span { color: var(--orange); }
+
+  .cover-sub {
+    font-size: 1rem;
+    color: #8B9AB0;
+    font-weight: 300;
+    max-width: 560px;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    flex-wrap: wrap;
+  }
+
+  .cover-meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+  .cover-meta-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #5a6a80;
+  }
+  .cover-meta-val { font-size: 0.88rem; color: #c8d5e8; font-weight: 400; }
+
+  /* BODY */
+  .doc-body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* SECTION */
+  .doc-section {
+    margin-bottom: 3rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .doc-section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.75rem;
+    background: var(--navy2);
+    border-bottom: 2px solid var(--orange);
+  }
+
+  .section-num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.7rem;
+    color: var(--orange);
+    background: rgba(249,115,22,0.15);
+    border: 1px solid rgba(249,115,22,0.3);
+    min-width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .section-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  .doc-section-body {
+    padding: 1.75rem;
+  }
+
+  p { margin-bottom: 0.9rem; color: #334155; font-weight: 400; }
+  p:last-child { margin-bottom: 0; }
+
+  /* INTRO BLURB */
+  .intro-blurb {
+    background: var(--orange-light);
+    border-left: 4px solid var(--orange);
+    border-radius: 0 6px 6px 0;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+    color: #7A3500;
+  }
+
+  /* TARGET TABLE */
+  .target-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+  .target-table th {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 0.6rem 0.9rem;
+    background: #F1F5F9;
+    border-bottom: 1px solid var(--border);
+  }
+  .target-table td {
+    padding: 0.85rem 0.9rem;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 0.88rem;
+    vertical-align: top;
+  }
+  .target-table tr:last-child td { border-bottom: none; }
+  .target-table tr:hover td { background: #FAFBFC; }
+
+  .target-icon { font-size: 1.1rem; }
+  .target-name { font-weight: 600; color: var(--navy); font-size: 0.88rem; }
+  .target-why { color: var(--muted); font-size: 0.82rem; line-height: 1.5; }
+
+  /* INCLUDED LIST */
+  .included-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .included-card {
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 1.25rem;
+    transition: border-color 0.2s;
+  }
+  .included-card:hover { border-color: var(--orange); }
+
+  .included-card-icon { font-size: 1.4rem; margin-bottom: 0.5rem; display: block; }
+  .included-card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .included-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .included-list li {
+    font-size: 0.82rem;
+    color: var(--muted);
+    padding-left: 1rem;
+    position: relative;
+  }
+  .included-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-size: 0.72rem;
+    top: 0.05em;
+  }
+
+  /* TIMELINE */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .timeline-item {
+    display: flex;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    position: relative;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item:last-child .timeline-line { display: none; }
+
+  .timeline-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 36px;
+  }
+
+  .timeline-dot {
+    width: 36px; height: 36px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.75rem;
+    color: white;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .timeline-line {
+    width: 2px;
+    flex: 1;
+    background: #E2E8F0;
+    margin-top: 4px;
+  }
+
+  .timeline-content { padding-top: 0.4rem; }
+  .timeline-week {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.2rem;
+  }
+  .timeline-action {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+  .timeline-desc { font-size: 0.83rem; color: var(--muted); }
+
+  /* RESULTS SECTION */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .result-card {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .result-num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .result-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8B9AB0;
+  }
+
+  .result-note {
+    font-size: 0.78rem;
+    color: #5a6a80;
+    margin-top: 0.4rem;
+    font-style: italic;
+  }
+
+  /* PRICING */
+  .pricing-table { width: 100%; border-collapse: collapse; }
+  .pricing-table td {
+    padding: 1rem 1.1rem;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 0.9rem;
+  }
+  .pricing-table tr:last-child td { border-bottom: none; }
+  .pricing-table .price-label { color: #334155; font-weight: 500; }
+  .pricing-table .price-desc { color: var(--muted); font-size: 0.8rem; }
+  .pricing-table .price-amount {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--orange);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .pricing-table .total-row td { background: var(--navy); }
+  .pricing-table .total-row .price-label { color: white; font-weight: 700; font-size: 1rem; }
+  .pricing-table .total-row .price-amount { color: var(--orange); font-size: 1.3rem; }
+
+  /* NEXT STEPS */
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 1rem 1.1rem;
+  }
+
+  .step-check {
+    width: 28px; height: 28px;
+    background: var(--orange);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.72rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .step-text { font-size: 0.88rem; color: #334155; }
+  .step-text strong { color: var(--navy); font-weight: 600; }
+
+  /* SIGNATURE */
+  .signature-block {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem 1.75rem;
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .sig-party-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .sig-line-block { display: flex; flex-direction: column; gap: 1.25rem; }
+  .sig-line {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .sig-line-label { font-size: 0.72rem; color: var(--muted); }
+  .sig-line-field {
+    border-bottom: 1px solid #94A3B8;
+    min-height: 32px;
+    font-size: 0.88rem;
+    color: #334155;
+    padding-bottom: 4px;
+  }
+  .sig-line-field.prefilled { color: var(--navy); font-weight: 500; }
+
+  /* FOOTER */
+  .doc-footer {
+    background: var(--navy);
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .doc-footer-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.88rem;
+    color: white;
+  }
+  .doc-footer-brand span { color: var(--orange); }
+  .doc-footer-note { font-size: 0.75rem; color: #5a6a80; }
+
+  @media print {
+    body { background: white; font-size: 13px; }
+    .cover { padding: 2rem 2.5rem; }
+    .doc-body { padding: 2rem 1.5rem; }
+    .doc-section { break-inside: avoid; }
+    .doc-footer { padding: 1rem 2.5rem; }
+  }
+
+  @media (max-width: 700px) {
+    .cover { padding: 2.5rem 1.5rem 2rem; }
+    .doc-body { padding: 1.5rem 1rem 3rem; }
+    .included-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    .signature-block { grid-template-columns: 1fr; gap: 2rem; }
+    .cover-meta { gap: 1.5rem; }
+    .doc-footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-from">Prepared by AtlasRelays — Carmell Dennis</div>
+    <h1 class="cover-title">Cold Email Lead Generation<br><span>Proposal</span></h1>
+    <p class="cover-sub">A custom outbound campaign strategy built to fill Sierra Express Logistics's pipeline with qualified decision-makers — consistently, every month.</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Prepared For</span>
+        <span class="cover-meta-val">Sierra Express Logistics LLC</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Prepared By</span>
+        <span class="cover-meta-val">Carmell Dennis — AtlasRelays</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Email</span>
+        <span class="cover-meta-val">carmell@atlasrelays.com</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Date</span>
+        <span class="cover-meta-val">May 2026</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="doc-body">
+
+  <!-- SECTION 1: What Is Cold Email Lead Gen -->
+  <div class="doc-section">
+    <div class="doc-section-header">
+      <div class="section-num">1</div>
+      <div class="section-heading">What Is Cold Email Lead Generation?</div>
+    </div>
+    <div class="doc-section-body">
+      <div class="intro-blurb">
+        Cold email lead gen means we find the exact decision-makers who need your services — before they go searching for someone else — and reach out with a targeted message that gets replies.
+      </div>
+      <p>Most logistics companies grow by referral or word of mouth. That works — until it doesn't. Cold email builds a system that consistently puts Sierra Express in front of property managers, business owners, and procurement contacts across your 10 target industries, on autopilot.</p>
+      <p>We use professional sending infrastructure (not Gmail or Yahoo), write multi-step email sequences tailored to each audience, and manage the technical setup so your domain stays clean and deliverable. The result: a steady flow of interested prospects reaching out to you each month.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Who We Target -->
+  <div class="doc-section">
+    <div class="doc-section-header">
+      <div class="section-num">2</div>
+      <div class="section-heading">Who We'll Target</div>
+    </div>
+    <div class="doc-section-body">
+      <p style="margin-bottom: 1.25rem;">Based on Sierra Express's business model, we'll build targeted contact lists across all 10 of your industries. Here's who we're reaching and why each one converts:</p>
+      <table class="target-table">
+        <thead>
+          <tr>
+            <th style="width:40px;"></th>
+            <th>Industry / Contact</th>
+            <th>Why They're a Great Target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="target-icon">🏢</td>
+            <td><div class="target-name">Apartment Property Managers</div></td>
+            <td class="target-why">Constantly need movers for tenant turnover, appliance swaps, and common area furniture — recurring, repeat business.</td>
+          </tr>
+          <tr>
+            <td class="target-icon">🏡</td>
+            <td><div class="target-name">Real Estate Agents & Brokers</div></td>
+            <td class="target-why">They refer movers to every client who buys or sells. One strong relationship can generate 5–20 referrals per year.</td>
+          </tr>
+          <tr>
+            <td class="target-icon">🏨</td>
+            <td><div class="target-name">Hotel Operations Managers</div></td>
+            <td class="target-why">Hotels regularly move furniture, equipment, and supplies between properties or during renovations.</td>
+          </tr>
+          <tr>
+            <td class="target-icon">🔨</td>
+            <td><div class="target-name">General Contractors</div></td>
+            <td class="target-why">Job site equipment moves, office buildout logistics, and material hauling — they need reliable logistics partners on every project.</td>
+          </tr>
+          <tr>
+            <td class="target-icon">🎓</td>
+            <td><div class="target-name">College / University Facility Managers</div></td>
+            <td class="target-why">End-of-year moves, dormitory furniture turnover, and equipment transport — large volume, scheduled work.</td>
+          </tr>
+          <tr>
+            <td class="target-icon">❤️</td>
+            <td><div class="target-name">Nonprofit Operations Directors</div></td>
+            <td class="target-why">Donation pickups, office relocation, and event logistics — often have recurring needs with limited in-house resources.</td>
+          </tr>
+          <tr>
+            <td class="target-icon">🏥</td>
+            <td><div class="target-name">Medical Office Administrators</div></td>
+            <td class="target-why">Equipment delivery, sensitive item transport, office relocation — they require dependable, careful handling.</td>
+          </tr>
+          <tr>
+            <td class="target-icon">⛪</td>
+            <td><div class="target-name">Church Facility Coordinators</div></td>
+            <td class="target-why">Event setup/teardown, storage logistics, office moves — consistent needs throughout the year.</td>
+          </tr>
+          <tr>
+            <td class="target-icon">🛍️</td>
+            <td><div class="target-name">Retail Store Managers</div></td>
+            <td class="target-why">Display moves, stockroom logistics, new location moves — retail expansions and renovations drive frequent logistics needs.</td>
+          </tr>
+          <tr>
+            <td class="target-icon">🏛️</td>
+            <td><div class="target-name">Government Procurement Officers</div></td>
+            <td class="target-why">City office relocations, school district logistics, and micro-contracts — steady, reliable income once you're a registered vendor.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: What's Included -->
+  <div class="doc-section">
+    <div class="doc-section-header">
+      <div class="section-num">3</div>
+      <div class="section-heading">What's Included in the $2,000 Setup</div>
+    </div>
+    <div class="doc-section-body">
+      <div class="included-grid">
+        <div class="included-card">
+          <span class="included-card-icon">🎯</span>
+          <div class="included-card-title">Lead List Building</div>
+          <ul class="included-list">
+            <li>300–500 verified contacts sourced from Apollo.io</li>
+            <li>Filtered by industry, company size, job title, and location</li>
+            <li>Email verification to minimize bounce rate</li>
+            <li>Targeted across all 10 of your industries</li>
+          </ul>
+        </div>
+        <div class="included-card">
+          <span class="included-card-icon">✍️</span>
+          <div class="included-card-title">5-Step Email Sequence</div>
+          <ul class="included-list">
+            <li>Email 1: Introduction & value hook</li>
+            <li>Email 2: Credibility & social proof</li>
+            <li>Email 3: Specific pain point + your offer</li>
+            <li>Email 4: Simple follow-up</li>
+            <li>Email 5: Final check-in</li>
+            <li>All copy written specifically for Sierra Express</li>
+          </ul>
+        </div>
+        <div class="included-card">
+          <span class="included-card-icon">⚙️</span>
+          <div class="included-card-title">Campaign Technical Setup</div>
+          <ul class="included-list">
+            <li>Professional sending infrastructure configured</li>
+            <li>Sending schedule optimized (Mon–Thu, 8am–4pm)</li>
+            <li>Personalization variables mapped per lead</li>
+            <li>Bounce protection and spam filter settings</li>
+            <li>Inbox warm-up management</li>
+          </ul>
+        </div>
+        <div class="included-card">
+          <span class="included-card-icon">📋</span>
+          <div class="included-card-title">Strategy & Launch</div>
+          <ul class="included-list">
+            <li>Industry priority plan (which to hit first)</li>
+            <li>Best title targets per industry</li>
+            <li>Message angle for each audience type</li>
+            <li>Campaign launch with live monitoring</li>
+            <li>All replies go directly to you</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Timeline -->
+  <div class="doc-section">
+    <div class="doc-section-header">
+      <div class="section-num">4</div>
+      <div class="section-heading">Timeline — From Payment to Live Campaign</div>
+    </div>
+    <div class="doc-section-body">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot">1</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-week">Day 1–2</div>
+            <div class="timeline-action">Lead List Building</div>
+            <div class="timeline-desc">We scrape and verify 300–500 qualified contacts from Apollo.io, filtered to your exact industries, locations, and decision-maker titles.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot">2</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-week">Day 3–4</div>
+            <div class="timeline-action">Email Sequence Written & Reviewed</div>
+            <div class="timeline-desc">All 5 email steps are written specifically for Sierra Express. You review and approve the copy before anything goes out.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot">3</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-week">Day 5–6</div>
+            <div class="timeline-action">Campaign Built & Configured</div>
+            <div class="timeline-desc">Leads uploaded, sequences mapped, sending schedule set, personalization configured. Full technical setup completed in Smartlead.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot">4</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-week">Day 7</div>
+            <div class="timeline-action">Campaign Goes Live</div>
+            <div class="timeline-desc">Emails begin sending. First replies typically start coming in within 3–7 business days. You receive all responses directly in your inbox.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot">5</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-week">Week 3–4 & Beyond</div>
+            <div class="timeline-action">Steady Reply Flow + Optimization</div>
+            <div class="timeline-desc">As the campaign runs, reply patterns emerge. We identify which industries and subject lines perform best and fine-tune accordingly.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: What to Expect -->
+  <div class="doc-section">
+    <div class="doc-section-header">
+      <div class="section-num">5</div>
+      <div class="section-heading">Realistic Results to Expect</div>
+    </div>
+    <div class="doc-section-body">
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-num">40–60%</div>
+          <div class="result-label">Open Rate</div>
+          <div class="result-note">Industry avg is 20–25%</div>
+        </div>
+        <div class="result-card">
+          <div class="result-num">3–8%</div>
+          <div class="result-label">Reply Rate</div>
+          <div class="result-note">On a 500-person list</div>
+        </div>
+        <div class="result-card">
+          <div class="result-num">2–5</div>
+          <div class="result-label">Booked Calls / Mo</div>
+          <div class="result-note">From cold email alone</div>
+        </div>
+      </div>
+      <p>On a list of 500 contacts, a 5% reply rate means 25 replies in the first month. Even if only 20% of those are genuinely interested, that's 5 people raising their hand — potentially worth thousands in logistics contracts each.</p>
+      <p style="color: #7A3500; background: var(--orange-light); border-left: 3px solid var(--orange); padding: 0.9rem 1.1rem; border-radius: 0 6px 6px 0; font-size: 0.88rem;"><strong>Important:</strong> Cold email is not a silver bullet — results improve over time as we identify which messages and industries respond best. Month 2 and 3 typically outperform Month 1 as the campaign is dialed in.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6: Investment -->
+  <div class="doc-section">
+    <div class="doc-section-header">
+      <div class="section-num">6</div>
+      <div class="section-heading">Investment Summary</div>
+    </div>
+    <div class="doc-section-body">
+      <table class="pricing-table">
+        <tr>
+          <td>
+            <div class="price-label">Website Design & Development</div>
+            <div class="price-desc">Custom single-page site — responsive, branded, with move booking form. Hosted and live within 48 hours.</div>
+          </td>
+          <td class="price-amount">$500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="price-label">Cold Email Lead Generation Setup</div>
+            <div class="price-desc">Full campaign build: lead list (300–500 contacts), 5-step email sequence, technical setup, strategy doc, and launch.</div>
+          </td>
+          <td class="price-amount">$2,000</td>
+        </tr>
+        <tr class="total-row">
+          <td><div class="price-label">Total Package Investment</div></td>
+          <td class="price-amount">$2,500</td>
+        </tr>
+      </table>
+      <div style="margin-top: 1.25rem; padding: 1rem 1.1rem; background: #F1F5F9; border-radius: 7px; font-size: 0.83rem; color: var(--muted);">
+        <strong style="color: var(--navy);">What's not included in setup:</strong> Ongoing monthly campaign management (available as a monthly add-on), paid advertising, or CRM software subscriptions. The $2,000 is a one-time setup fee to get your campaign built and launched.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: Next Steps -->
+  <div class="doc-section">
+    <div class="doc-section-header">
+      <div class="section-num">7</div>
+      <div class="section-heading">Next Steps</div>
+    </div>
+    <div class="doc-section-body">
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-check">1</div>
+          <div class="step-text"><strong>Review & approve this proposal.</strong> Let us know if you'd like to adjust scope, industries, or anything in the package before we proceed.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-check">2</div>
+          <div class="step-text"><strong>Invoice sent via Stripe.</strong> Once you're ready, we send a secure payment link. No contract required — just the invoice and your approval.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-check">3</div>
+          <div class="step-text"><strong>We begin immediately.</strong> Lead list building starts within 24 hours of payment. Website goes live in parallel.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-check">4</div>
+          <div class="step-text"><strong>Campaign live within 5–7 business days.</strong> You'll review and approve the email copy before anything goes out. Your first replies could arrive in as little as one week.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNATURE BLOCK -->
+  <div class="signature-block">
+    <div>
+      <div class="sig-party-label">Service Provider</div>
+      <div class="sig-line-block">
+        <div class="sig-line">
+          <div class="sig-line-label">Name</div>
+          <div class="sig-line-field prefilled">Carmell Dennis — AtlasRelays</div>
+        </div>
+        <div class="sig-line">
+          <div class="sig-line-label">Email</div>
+          <div class="sig-line-field prefilled">carmell@atlasrelays.com</div>
+        </div>
+        <div class="sig-line">
+          <div class="sig-line-label">Signature &amp; Date</div>
+          <div class="sig-line-field"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="sig-party-label">Client — Sierra Express Logistics LLC</div>
+      <div class="sig-line-block">
+        <div class="sig-line">
+          <div class="sig-line-label">Name</div>
+          <div class="sig-line-field"></div>
+        </div>
+        <div class="sig-line">
+          <div class="sig-line-label">Email</div>
+          <div class="sig-line-field"></div>
+        </div>
+        <div class="sig-line">
+          <div class="sig-line-label">Signature &amp; Date</div>
+          <div class="sig-line-field"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <div class="doc-footer-brand">ATLAS<span>RELAYS</span></div>
+  <div class="doc-footer-note">Questions? carmell@atlasrelays.com</div>
+</div>
+
+</body>
+</html>
