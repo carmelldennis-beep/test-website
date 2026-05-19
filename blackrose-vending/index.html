@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blackrose Vending & Transportation — Courier & Logistics | Southern California</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --red: #C8102E;
+    --red-dark: #8B0A1E;
+    --red-glow: rgba(200, 16, 46, 0.12);
+    --bg: #0D0D0D;
+    --bg2: #141414;
+    --bg3: #1A1A1A;
+    --bg4: #202020;
+    --text: #F0EDE8;
+    --muted: #909090;
+    --muted2: #C0BDB8;
+    --border: rgba(200, 16, 46, 0.25);
+    --border-subtle: rgba(255,255,255,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.35;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; width: 100%;
+    z-index: 200;
+    padding: 1.4rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(9,9,9,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .logo img {
+    height: 52px;
+    width: auto;
+    display: block;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted2);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    color: var(--text) !important;
+    border: 1px solid var(--red) !important;
+    padding: 0.5rem 1.3rem;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--red) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 70% at 75% 45%, rgba(200,16,46,0.07) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 15% 85%, rgba(200,16,46,0.04) 0%, transparent 60%);
+  }
+
+  /* Animated diagonal lines */
+  .hero-lines {
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 80px,
+      rgba(200,16,46,0.015) 80px,
+      rgba(200,16,46,0.015) 81px
+    );
+    pointer-events: none;
+  }
+
+  /* Logo motif */
+  .rose-motif {
+    position: absolute;
+    right: 2rem; top: 50%;
+    transform: translateY(-50%);
+    width: 720px; height: 720px;
+    opacity: 0.55;
+    object-fit: contain;
+    filter: brightness(2.2) contrast(0.85);
+  }
+
+  .hero-inner { position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 36px; height: 1px;
+    background: var(--red);
+  }
+
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5.5rem, 13vw, 12rem);
+    line-height: 0.88;
+    letter-spacing: 0.015em;
+    margin-bottom: 2.5rem;
+  }
+  .hero-headline .outline {
+    -webkit-text-stroke: 1px rgba(240,237,232,0.25);
+    color: transparent;
+  }
+  .hero-headline .red { color: var(--red); }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--muted2);
+    max-width: 460px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-actions { display: flex; gap: 1.25rem; align-items: center; }
+
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--red);
+    color: white;
+    padding: 0.95rem 2.5rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+  .btn-ghost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted2);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--text); }
+  .btn-ghost::after { content: '→'; }
+
+  /* TICKER */
+  .ticker {
+    background: var(--red);
+    padding: 0.72rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-flex;
+    animation: ticker 22s linear infinite;
+    gap: 3rem;
+  }
+  .ticker-item {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .ticker-item::after { content: '◆'; font-size: 0.45rem; opacity: 0.55; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* STATS */
+  .stats-bar {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.2rem;
+    color: var(--red);
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.4rem;
+  }
+
+  /* SECTION LABELS */
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--red);
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  /* HOW IT WORKS */
+  .how-it-works {
+    padding: 6rem 3rem;
+    background: var(--bg3);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 4rem;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .step {
+    padding: 3rem 2.5rem;
+    position: relative;
+    border-right: 1px solid var(--border-subtle);
+    transition: background 0.3s;
+  }
+  .step:last-child { border-right: none; }
+  .step:hover { background: rgba(200,16,46,0.04); }
+
+  .step-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: var(--red);
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    transition: opacity 0.3s;
+  }
+  .step:hover .step-number { opacity: 0.3; }
+
+  .step-icon {
+    font-size: 1.6rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .step-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+  }
+
+  .step-desc {
+    font-size: 0.88rem;
+    color: var(--muted2);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .step-connector {
+    position: absolute;
+    top: 50%;
+    right: -16px;
+    transform: translateY(-50%);
+    width: 32px; height: 32px;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: white;
+    z-index: 1;
+  }
+
+  /* SERVICES */
+  .services {
+    padding: 6rem 3rem;
+    background: var(--bg);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+    margin-top: 4rem;
+  }
+
+  .service-card {
+    background: var(--bg);
+    padding: 3rem;
+    position: relative;
+    transition: background 0.3s;
+    overflow: hidden;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--red);
+    transition: width 0.35s;
+  }
+  .service-card:hover { background: var(--bg2); }
+  .service-card:hover::after { width: 100%; }
+
+  .service-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    color: var(--red);
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-icon { font-size: 2rem; display: block; margin-bottom: 1.25rem; }
+
+  .service-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 0.03em;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--muted2);
+    line-height: 1.75;
+    font-weight: 300;
+    max-width: 360px;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .service-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    color: var(--muted2);
+    padding: 0.3rem 0.7rem;
+  }
+
+  /* WHY US */
+  .why-us {
+    padding: 6rem 3rem;
+    background: var(--bg2);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .feature-list { margin-top: 3rem; display: flex; flex-direction: column; }
+
+  .feature-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    transition: padding-left 0.2s;
+  }
+  .feature-item:first-child { border-top: 1px solid var(--border-subtle); }
+  .feature-item:hover { padding-left: 0.5rem; }
+
+  .feature-dot {
+    width: 6px; height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+    margin-top: 0.55rem;
+    flex-shrink: 0;
+  }
+
+  .feature-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+
+  .feature-text {
+    font-size: 0.86rem;
+    color: var(--muted2);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .why-visual { position: relative; }
+
+  .why-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 11vw, 9rem);
+    line-height: 0.88;
+    -webkit-text-stroke: 2px rgba(240,237,232,0.55);
+    color: rgba(240,237,232,0.12);
+    letter-spacing: 0.02em;
+    user-select: none;
+  }
+
+  .why-stat-block {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .why-stat {
+    background: var(--bg3);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .why-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .why-stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.3rem;
+  }
+
+  /* COVERAGE */
+  .coverage {
+    padding: 6rem 3rem;
+    background: var(--bg);
+    text-align: center;
+  }
+
+  .area-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+
+  .area-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1px solid var(--border-subtle);
+    padding: 0.55rem 1.1rem;
+    color: var(--muted2);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .area-tag:hover { border-color: var(--red); color: var(--text); }
+
+  /* CONTACT */
+  .contact {
+    padding: 6rem 3rem;
+    background: var(--bg2);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-detail { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.4rem; }
+
+  .contact-row { display: flex; flex-direction: column; gap: 0.2rem; }
+
+  .contact-row-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  .contact-row-val { font-size: 0.95rem; color: var(--text); font-weight: 300; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .form-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-input, .form-select, .form-textarea {
+    background: var(--bg3);
+    border: 1px solid var(--border-subtle);
+    color: var(--text);
+    padding: 0.85rem 1rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--red); }
+  .form-select { appearance: none; cursor: pointer; }
+  .form-select option { background: #141414; }
+  .form-textarea { resize: vertical; min-height: 110px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .btn-submit {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+  .btn-submit:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: #050505;
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.08em;
+  }
+  .footer-logo span { color: var(--red); }
+  .footer-copy { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; }
+  .footer-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .steps-grid { grid-template-columns: 1fr; }
+    .step { border-right: none; border-bottom: 1px solid var(--border-subtle); }
+    .step:last-child { border-bottom: none; }
+    .step-connector { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-us { grid-template-columns: 1fr; gap: 3rem; }
+    .contact { grid-template-columns: 1fr; gap: 3rem; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; }
+    .how-it-works, .services, .why-us, .coverage, .contact { padding: 4rem 1.5rem; }
+    .form-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo"><img src="logo.png" alt="Blackrose Vending & Transportation"></div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#coverage">Coverage</a>
+    <a href="#contact" class="nav-cta">Request a Run</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+
+  <img class="rose-motif" src="logo.png" alt="">
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Southern California Courier & Logistics — Dispatching Now</div>
+    <h1 class="hero-headline">
+      FAST.<br>
+      <span class="outline">RELIABLE.</span><br>
+      <span class="red">DELIVERED.</span>
+    </h1>
+    <p class="hero-sub">Same-day courier and logistics services across Los Angeles, Orange County, and the Inland Empire. Professional. On time. Every run.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request a Run</a>
+      <a href="#services" class="btn-ghost">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Same-Day Courier</span>
+    <span class="ticker-item">Medical Delivery</span>
+    <span class="ticker-item">Los Angeles County</span>
+    <span class="ticker-item">Orange County</span>
+    <span class="ticker-item">Inland Empire</span>
+    <span class="ticker-item">Freight & Logistics</span>
+    <span class="ticker-item">Route Delivery</span>
+    <span class="ticker-item">Licensed & Insured</span>
+    <span class="ticker-item">Same-Day Courier</span>
+    <span class="ticker-item">Medical Delivery</span>
+    <span class="ticker-item">Los Angeles County</span>
+    <span class="ticker-item">Orange County</span>
+    <span class="ticker-item">Inland Empire</span>
+    <span class="ticker-item">Freight & Logistics</span>
+    <span class="ticker-item">Route Delivery</span>
+    <span class="ticker-item">Licensed & Insured</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <div class="stat-num">24/7</div>
+    <div class="stat-label">Available</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-1">
+    <div class="stat-num">3</div>
+    <div class="stat-label">Counties Served</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-2">
+    <div class="stat-num">Same-Day</div>
+    <div class="stat-label">Dispatch Available</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-3">
+    <div class="stat-num">Insured</div>
+    <div class="stat-label">Licensed & Covered</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+  <div class="reveal">
+    <div class="section-label">The Process</div>
+    <h2 class="section-title">HOW IT<br>WORKS</h2>
+    <p style="color: var(--muted2); font-size: 0.92rem; font-weight: 300; max-width: 500px; line-height: 1.75;">
+      Three steps from request to delivered. No complicated systems, no waiting around. Just fast, professional courier service.
+    </p>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step reveal">
+      <div class="step-number">01</div>
+      <span class="step-icon">📲</span>
+      <div class="step-title">Book Your Run</div>
+      <p class="step-desc">Call, text, or fill out the form below with your pickup and drop-off details, your timeline, and what needs to be moved. Same-day bookings welcome.</p>
+      <div class="step-connector">→</div>
+    </div>
+    <div class="step reveal reveal-delay-1">
+      <div class="step-number">02</div>
+      <span class="step-icon">🚐</span>
+      <div class="step-title">We Pick It Up</div>
+      <p class="step-desc">We dispatch immediately and arrive at your pickup location on time. Your package, freight, or delivery is handled with care from the moment we take it.</p>
+      <div class="step-connector">→</div>
+    </div>
+    <div class="step reveal reveal-delay-2">
+      <div class="step-number">03</div>
+      <span class="step-icon">✅</span>
+      <div class="step-title">Delivered.</div>
+      <p class="step-desc">We deliver to the destination on schedule. You get confirmation when it's done. Clean, professional, no excuses — every single run.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="reveal">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">OUR<br>SERVICES</h2>
+    <p style="color: var(--muted2); font-size: 0.92rem; font-weight: 300; max-width: 500px; line-height: 1.75;">
+      Built for businesses and individuals who need reliable, professional delivery without the runaround.
+    </p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01 / Service</div>
+      <span class="service-icon">🚗</span>
+      <div class="service-name">Courier & Delivery</div>
+      <p class="service-desc">On-demand and scheduled courier runs for packages, documents, and time-sensitive freight across LA and Orange County. Same-day dispatch available.</p>
+      <div class="service-tags">
+        <span class="service-tag">Same-Day</span>
+        <span class="service-tag">On-Demand</span>
+        <span class="service-tag">Scheduled</span>
+        <span class="service-tag">Last-Mile</span>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">02 / Service</div>
+      <span class="service-icon">🏥</span>
+      <div class="service-name">Medical Courier</div>
+      <p class="service-desc">Reliable medical and pharmaceutical delivery across the SoCal corridor. Precision timing and discreet handling for specimens, equipment, and sensitive shipments.</p>
+      <div class="service-tags">
+        <span class="service-tag">HIPAA Aware</span>
+        <span class="service-tag">Specimens</span>
+        <span class="service-tag">Pharmaceuticals</span>
+        <span class="service-tag">Equipment</span>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">03 / Service</div>
+      <span class="service-icon">🚐</span>
+      <div class="service-name">Freight & Logistics</div>
+      <p class="service-desc">Commercial freight, cargo van, and box truck delivery for businesses that need consistent logistics support. B2B route delivery and commercial hauling available.</p>
+      <div class="service-tags">
+        <span class="service-tag">Box Truck</span>
+        <span class="service-tag">Cargo Van</span>
+        <span class="service-tag">B2B Routes</span>
+        <span class="service-tag">Commercial</span>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">04 / Service</div>
+      <span class="service-icon">📦</span>
+      <div class="service-name">Route & Platform Delivery</div>
+      <p class="service-desc">Experienced across major delivery platforms including Amazon Flex, Spark Driver, GoShare, and DoorDash. High-volume route delivery handled efficiently and on time.</p>
+      <div class="service-tags">
+        <span class="service-tag">Amazon Flex</span>
+        <span class="service-tag">Spark Driver</span>
+        <span class="service-tag">GoShare</span>
+        <span class="service-tag">DoorDash</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BLACKROSE -->
+<section class="why-us" id="about">
+  <div>
+    <div class="section-label reveal">Why Choose Us</div>
+    <h2 class="section-title reveal">WHY<br>BLACKROSE</h2>
+    <div class="feature-list">
+      <div class="feature-item reveal">
+        <div class="feature-dot"></div>
+        <div>
+          <div class="feature-title">On Time. Every Time.</div>
+          <p class="feature-text">Late deliveries cost businesses money and trust. Punctuality is not a perk — it's our minimum standard on every single run.</p>
+        </div>
+      </div>
+      <div class="feature-item reveal reveal-delay-1">
+        <div class="feature-dot"></div>
+        <div>
+          <div class="feature-title">Licensed & Fully Insured</div>
+          <p class="feature-text">Commercial auto and cargo insurance on every run. Your goods are protected from the moment we pick them up to the moment we deliver.</p>
+        </div>
+      </div>
+      <div class="feature-item reveal reveal-delay-2">
+        <div class="feature-dot"></div>
+        <div>
+          <div class="feature-title">Independent & Accountable</div>
+          <p class="feature-text">No middlemen. You work directly with the driver. That means direct communication, faster response, and real accountability on every job.</p>
+        </div>
+      </div>
+      <div class="feature-item reveal reveal-delay-3">
+        <div class="feature-dot"></div>
+        <div>
+          <div class="feature-title">Professional Handling</div>
+          <p class="feature-text">From medical specimens to commercial freight — every package is handled with the professionalism and discretion the job demands.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="why-visual reveal">
+    <div class="why-big-text">YOUR<br>CARGO.<br>OUR<br>MOVE.</div>
+    <div class="why-stat-block">
+      <div class="why-stat">
+        <div class="why-stat-num">3</div>
+        <div class="why-stat-label">Counties</div>
+      </div>
+      <div class="why-stat">
+        <div class="why-stat-num">24/7</div>
+        <div class="why-stat-label">Availability</div>
+      </div>
+      <div class="why-stat">
+        <div class="why-stat-num">4+</div>
+        <div class="why-stat-label">Platforms</div>
+      </div>
+      <div class="why-stat">
+        <div class="why-stat-num">0</div>
+        <div class="why-stat-label">Excuses</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="coverage" id="coverage">
+  <div class="section-label reveal" style="justify-content: center;">Where We Operate</div>
+  <h2 class="section-title reveal">SERVICE AREA</h2>
+  <p class="reveal" style="color: var(--muted2); font-size: 0.92rem; font-weight: 300; max-width: 480px; margin: 0 auto; line-height: 1.75;">
+    Headquartered in Anaheim — positioned at the center of the SoCal logistics corridor for rapid coverage across three counties.
+  </p>
+  <div class="area-tags reveal">
+    <span class="area-tag">Anaheim</span>
+    <span class="area-tag">Los Angeles</span>
+    <span class="area-tag">Orange County</span>
+    <span class="area-tag">Long Beach</span>
+    <span class="area-tag">Irvine</span>
+    <span class="area-tag">Santa Ana</span>
+    <span class="area-tag">Garden Grove</span>
+    <span class="area-tag">Ontario</span>
+    <span class="area-tag">Riverside</span>
+    <span class="area-tag">Inland Empire</span>
+    <span class="area-tag">Santa Fe Springs</span>
+    <span class="area-tag">Compton</span>
+    <span class="area-tag">Torrance</span>
+    <span class="area-tag">Mission Viejo</span>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div>
+    <div class="section-label reveal">Reach Out</div>
+    <h2 class="section-title reveal">REQUEST<br>A RUN</h2>
+    <p class="reveal" style="color: var(--muted2); font-size: 0.92rem; font-weight: 300; line-height: 1.75; max-width: 360px;">
+      Tell us what you need moved, where, and when. We'll respond fast with availability and a quote.
+    </p>
+    <div class="contact-detail reveal">
+      <div class="contact-row">
+        <span class="contact-row-label">Email</span>
+        <span class="contact-row-val">carmell@blackrosevending.com</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-row-label">Phone</span>
+        <span class="contact-row-val">(213) 304-9990</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-row-label">Service Area</span>
+        <span class="contact-row-val">Los Angeles, Orange County, Inland Empire</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-row-label">Hours</span>
+        <span class="contact-row-val">7 Days a Week — Emergency Runs Available 24/7</span>
+      </div>
+    </div>
+  </div>
+
+  <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+    <div class="form-grid">
+      <div class="form-group">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-input" placeholder="John" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-input" placeholder="Smith" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-input" placeholder="john@company.com" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Phone</label>
+      <input type="tel" class="form-input" placeholder="(714) 000-0000">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Service Needed</label>
+      <select class="form-select form-input">
+        <option value="">Select a service...</option>
+        <option>Same-Day Courier & Delivery</option>
+        <option>Medical Courier</option>
+        <option>Freight & Logistics</option>
+        <option>Route / Platform Delivery</option>
+        <option>Recurring Business Contract</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Pickup & Drop-Off Details</label>
+      <textarea class="form-textarea" placeholder="Pickup location, destination, what needs to be delivered, and your timeframe..."></textarea>
+    </div>
+    <button type="submit" class="btn-submit">Send Request →</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><img src="logo.png" alt="Blackrose Vending & Transportation" style="height:40px;"></div>
+  <div class="footer-tagline">Anaheim, CA — Serving Southern California</div>
+  <div class="footer-copy">© 2026 Blackrose Vending & Transportation</div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = 'Request Sent ✓';
+    btn.style.background = '#1a7a3c';
+    setTimeout(() => { btn.textContent = 'Send Request →'; btn.style.background = ''; e.target.reset(); }, 3000);
+  }
+</script>
+</body>
+</html>
