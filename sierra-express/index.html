@@ -1347,7 +1347,7 @@
     <p class="section-sub reveal">Need a custom solution, ongoing commercial deliveries, or a long-term logistics partner? Reach out directly.</p>
     <div class="contact-info-item reveal">
       <span class="contact-info-label">Email</span>
-      <span class="contact-info-val">info@sierraexpresslogistics.com</span>
+      <span class="contact-info-val">sierraexpresslogistics@gmail.com</span>
     </div>
     <div class="contact-info-item reveal">
       <span class="contact-info-label">Service Area</span>
@@ -1412,20 +1412,64 @@
   }, { threshold: 0.08 });
   reveals.forEach(el => observer.observe(el));
 
-  function handleMoveSubmit(e) {
+  const W3F_KEY = 'YOUR_WEB3FORMS_KEY'; // Maurice: replace with key from web3forms.com
+
+  async function handleMoveSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = 'Quote Request Sent ✓';
-    btn.style.background = '#16a34a';
-    setTimeout(() => { btn.textContent = 'Request My Quote →'; btn.style.background = ''; e.target.reset(); }, 3500);
+    const data = new FormData(e.target);
+    data.append('access_key', W3F_KEY);
+    data.append('subject', 'New Quote Request — Sierra Express Logistics');
+    data.append('from_name', 'Sierra Express Website');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      const json = await res.json();
+      if (json.success) {
+        btn.textContent = 'Quote Request Sent ✓';
+        btn.style.background = '#16a34a';
+        e.target.reset();
+        setTimeout(() => { btn.textContent = 'Request My Quote →'; btn.style.background = ''; btn.disabled = false; }, 3500);
+      } else {
+        btn.textContent = 'Error — Try Again';
+        btn.style.background = '#dc2626';
+        setTimeout(() => { btn.textContent = 'Request My Quote →'; btn.style.background = ''; btn.disabled = false; }, 3000);
+      }
+    } catch {
+      btn.textContent = 'Error — Try Again';
+      btn.style.background = '#dc2626';
+      setTimeout(() => { btn.textContent = 'Request My Quote →'; btn.style.background = ''; btn.disabled = false; }, 3000);
+    }
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = 'Sent! ✓';
-    btn.style.background = '#16a34a';
-    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; e.target.reset(); }, 3000);
+    const data = new FormData(e.target);
+    data.append('access_key', W3F_KEY);
+    data.append('subject', 'New Message — Sierra Express Logistics Website');
+    data.append('from_name', 'Sierra Express Website');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      const json = await res.json();
+      if (json.success) {
+        btn.textContent = 'Sent! ✓';
+        btn.style.background = '#16a34a';
+        e.target.reset();
+        setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; btn.disabled = false; }, 3000);
+      } else {
+        btn.textContent = 'Error — Try Again';
+        btn.style.background = '#dc2626';
+        setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; btn.disabled = false; }, 3000);
+      }
+    } catch {
+      btn.textContent = 'Error — Try Again';
+      btn.style.background = '#dc2626';
+      setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; btn.disabled = false; }, 3000);
+    }
   }
 </script>
 </body>
